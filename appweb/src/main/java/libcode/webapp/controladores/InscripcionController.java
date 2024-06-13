@@ -71,7 +71,7 @@ public class InscripcionController implements Serializable{
             
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "La inscripción se guardó correctamente."));
         } catch (Exception e) {
-            // Manejar cualquier excepción y mostrar un mensaje de error
+            
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "No se pudo guardar la inscripción. Error: " + e.getMessage()));
             e.printStackTrace();
         }
