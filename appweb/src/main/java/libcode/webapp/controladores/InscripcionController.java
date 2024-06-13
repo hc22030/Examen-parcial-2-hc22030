@@ -41,7 +41,7 @@ public class InscripcionController implements Serializable{
     public void init() {
         inscripcion = new Inscripcion();
         inscripcion.setAlumno(new Alumno());
-        inscripcion.setMateria(new Materia()); // Asegurando que alumno no sea nulo
+        inscripcion.setMateria(new Materia()); 
 
         cargarDatos();
     }
@@ -54,21 +54,21 @@ public class InscripcionController implements Serializable{
 
     public void guardarInscripcion() {
         try {
-            // Configurar fecha de inscripción
+            
             inscripcion.setFechaInscripcion(LocalDate.now());
 
-            // Guardar inscripción
+            
             inscripcionService.guardarInscripcion(inscripcion);
 
-            // Reiniciar campos después de guardar
+            
             inscripcion = new Inscripcion();
             inscripcion.setAlumno(new Alumno());
             inscripcion.setMateria(new Materia());
 
-            // Recargar los datos después de guardar
+            
             cargarDatos();
 
-            // Mostrar mensaje de éxito
+            
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "La inscripción se guardó correctamente."));
         } catch (Exception e) {
             // Manejar cualquier excepción y mostrar un mensaje de error
